@@ -1,52 +1,88 @@
 <?php
+    if(isset($_POST['page']))
+    {
+        setcookie('page', $_POST['page']);
+        $_COOKIE['page'] = $_POST['page'];
+    }
+    else 
+    {
+        if(!isset($_COOKIE['page'])){
+            setcookie('page', 'main');
+            $_COOKIE['page'] = 'main';
+        }
+    }
+
+    $page =  $_COOKIE['page'];
+
+    if(!isset($_COOKIE['language'])){
+        setcookie('language', 'ru');
+        $_COOKIE['language'] = 'ru';
+        
+    }
+    #**************     id initialization    *******************
+    switch($page){
+        case 'Main':case 'main':case 'Главная':
+            $page = 'main';break;
+        case 'News':case 'news':case 'Новости':
+            $page = 'news';break;
+    }
+
     #**************     errors log    *******************
     error_reporting(E_ALL);
     ini_set("display_errors", 1);
     ini_set("display_startap_errors", 1);
-    #**************     language on first launch   *******************
-    if (!isset($_COOKIE['language']))
-        setcookie('language', 'ru');
     #**************     mysql    *******************
     $mysqli = new mysqli("localhost", "root", "", "miximix");
     $mysqli->set_charset("utf8");
-    $result_set = $mysqli->query("SELECT * FROM `main` WHERE `id` = 'main'");
+    $result_set = $mysqli->query("SELECT * FROM `articles` WHERE `id` = '$page'");
     $article = $result_set->fetch_assoc();
     $mysqli->close();
     #**************     switch language button language was pressed   *******************
     if (isset($_POST['lan'])) { 
-        $target = $_POST['lan'];
-        if($target == 'ru'){
-            $title = $article['title'];
-            $body = $article['body'];
-            $id = $article["id"];
-            $img = $article["img"];
-        }
-        elseif($target == 'en')
-        {
-
-            $source = 'ru';
-            $title = $article['title'];
-            $body = $article['body'];
-
-
-            include('translate.php');
-            $trans = new GoogleTranslate();
-
-            $id = $article["id"];
-            $title = $trans->translate($source, $target, $title);
-            $body = $trans->translate($source, $target, $body);
-            $img = $article["img"];
-        }
-    } else 
-    {
-        $id = $article["id"];
-        $title = $article["title"];
-        $body = $article["body"];
+        setcookie('language', $_POST['lan']);
+        $_COOKIE['language'] = $_POST['lan'];
+    }
+    $language = $_COOKIE['language'];
+    $target = $language;
+    if($target == 'ru'){
+        $title = $article['title'];
+        $body = $article['body'];
+        $page = $article["id"];
         $img = $article["img"];
+        setcookie('language', 'ru');
+        $_COOKIE['language'] = 'ru';
+
+
+
+    }
+    elseif($target == 'en')
+    {
+        $source = 'ru';
+        $title = $article['title'];
+        $body = $article['body'];
+
+
+        include('translate.php');
+        $trans = new GoogleTranslate();
+
+        $page = $article["id"];
+        $title = $trans->translate($source, $target, $title);
+        $body = $trans->translate($source, $target, $body);
+        $img = $article["img"];
+        setcookie('language', 'en');
+        $_COOKIE['language'] = 'en';
+
+
     }
 
-
-    #**************     initialization    *******************
+     #**************     ini initialization    *******************
+     $names = parse_ini_file("system_$language.ini");
+     $main = $names['MAIN'];
+     $news = $names['NEWS'];
+     $shedule = $names['SHEDULE'];
+     $gallery = $names['GALLERY'];
+     $about_us = $names['ABOUT_US'];
+ 
     
 ?>
 
@@ -65,28 +101,49 @@
     <div id="web-site-wrapper">
         <div id="web-site">
             <header id="header-bottom">
-                <a href="#">Главная</a>
-                <a href="#">Новости</a>
-                <a href="#">Расписание</a>
-                <a href="#">Фотогалерея</a>
-                <a href="#">О нас</a>
-                <a>О нас</a>
+                <form method="post" id="header-form">
+                    <input type="submit" name="page" value="<?=$main?>" id="main">
+                    <input type="submit" name="page" value="<?=$news?>" id="news">
+                    <input type="submit" name="page" value="<?=$shedule?>" id="shedule">
+                    <input type="submit" name="page" value="<?=$gallery?>" id="gallery">
+                    <input type="submit" name="page" value="<?=$about_us?>" id="about_us">
+                </form>
             </header>
 
             <div id="content-wrapper">
                 <div id="content">
-                    <h1><?= $title ?></h1>
-                     <?= $img ?>
-                    <?= $body ?>  
+
+                <?php
+                            switch ($page) {
+                                case 'main':
+                                    echo "<h1>$title</h1>";
+                                    echo "$img";
+                                    echo "$body"; 
+                                    break;
+                                case 'news':
+                                    echo "<h1>$title</h1>";
+                                    echo "$body"; 
+                                    echo "$img";
+                                    break;
+                                case 'aboutus':
+                                    echo $article["body"];
+                                    break;
+                                
+                                    
+
+
+                            }
+
+                    ?>
                 </div>
             </div>
 
             <footer id="footer">
-                <form method="POST">
-                            <div class="lang-buttons">
-                                <input type="submit" name="lan" value="ru" id="ru">
-                                <input type="submit" name="lan" value="en" id="en">
-                            </div>
+                <form method="POST" id="language">
+                    <div id="lang-buttons">
+                        <input type="submit" name="lan" value="ru" id="ru">
+                        <input type="submit" name="lan" value="en" id="en">
+                    </div>
                 </form>
             </footer>
         </div>

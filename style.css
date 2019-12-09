@@ -7,8 +7,7 @@
 #web-site-wrapper {
     display: flex;
     min-height: 100vh;
-    flex-direction: column  ;
-
+    flex-direction: column;
 }
 
 #web-site {
@@ -25,36 +24,39 @@ html, body {
 
 #header-bottom {
     display: flex;
+}
+#header-form {
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
     height: 40px;
-    background-color: red;
-    border: 1px solid ;
-    font-size: 20px;
-
+    border: 1px solid;
+    flex: 1;
 }
 
 a {
     text-decoration: none;
 }
 
-#header-bottom > a {
+#header-bottom>form>input{
     flex: 1;
     text-align: center;
     border: 1px solid;
     height: 100%;
-    line-height: 41px;
+    line-height: 38px;
     border-collapse: collapse;
-}
+    font-size: 22px;
+    background-color: red;
 
+
+}
 
 #content-wrapper {
     display: flex;
     justify-content: center;
     background-color: green;
     flex: 1;
-
 }
 
 #content {
@@ -75,8 +77,6 @@ h1 {
     text-align: center;
 }
 
-
-
 .img {
     max-width: 100%;
     height: auto;
@@ -85,19 +85,31 @@ h1 {
     margin-bottom: 40px;
 }
 
-
 #ru {
     background-image: url(./img/ru.png);
     color: rgba(0, 0, 0, 0);
     border: 0;
     height: 23px;
     width: 44px;
-  }
-  
-  #en {
+}
+
+#en {
     background-image: url(./img/en.png);
     color: rgba(0, 0, 0, 0);
     border: 0;
     height: 23px;
     width: 44px;
-  }
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    align-content: space-between;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+#lang-buttons {
+    margin-right: 24px;
+
+}
