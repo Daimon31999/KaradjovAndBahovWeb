@@ -1,4 +1,5 @@
 <?php
+    #**************     setcookie('page')    *******************
     if(isset($_POST['page']))
     {
         setcookie('page', $_POST['page']);
@@ -25,6 +26,11 @@
             $page = 'main';break;
         case 'News':case 'news':case 'Новости':
             $page = 'news';break;
+        case 'Фотогалерея':case 'gallery':case 'Gallery':
+            $page = 'gallery';break;
+        case 'About us':case 'aboutus':case 'О нас':
+            $page = 'aboutus';break;
+
     }
 
     #**************     errors log    *******************
@@ -51,9 +57,6 @@
         $img = $article["img"];
         setcookie('language', 'ru');
         $_COOKIE['language'] = 'ru';
-
-
-
     }
     elseif($target == 'en')
     {
@@ -71,8 +74,6 @@
         $img = $article["img"];
         setcookie('language', 'en');
         $_COOKIE['language'] = 'en';
-
-
     }
 
      #**************     ini initialization    *******************
@@ -81,7 +82,7 @@
      $news = $names['NEWS'];
      $shedule = $names['SHEDULE'];
      $gallery = $names['GALLERY'];
-     $about_us = $names['ABOUT_US'];
+     $aboutus = $names['ABOUT_US'];
  
     
 ?>
@@ -94,6 +95,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     <title>Karadjov&Bahov</title>
 </head>
 
@@ -106,7 +108,7 @@
                     <input type="submit" name="page" value="<?=$news?>" id="news">
                     <input type="submit" name="page" value="<?=$shedule?>" id="shedule">
                     <input type="submit" name="page" value="<?=$gallery?>" id="gallery">
-                    <input type="submit" name="page" value="<?=$about_us?>" id="about_us">
+                    <input type="submit" name="page" value="<?=$aboutus?>" id="aboutus">
                 </form>
             </header>
 
@@ -122,22 +124,26 @@
                                     break;
                                 case 'news':
                                     echo "<h1>$title</h1>";
-                                    echo "$body"; 
+                                    echo "<p>$body</p>"; 
                                     echo "$img";
                                     break;
-                                case 'aboutus':
-                                    echo $article["body"];
-                                    break;
-                                
+                                case 'gallery':
+                                    echo "<h1 id='gallery-title'>$title</h1>";
+                                    echo "<div id='gallery-images'>$img</div>";
                                     
-
-
+                                    break;
+                                case 'aboutus':
+                                    echo "$img";
+                                    echo '<script src="https://api-maps.yandex.ru/2.1/?apikey=c9df9525-e54e-436f-b283-015a4cc132cc&lang=ru_RU"
+                                    type="text/javascript"></script>
+                                    <script src="scripts/map.js" type="text/javascript"></script>';
+                                    echo '<div id="map"></div>';
+                                    break;
                             }
 
                     ?>
                 </div>
             </div>
-
             <footer id="footer">
                 <form method="POST" id="language">
                     <div id="lang-buttons">

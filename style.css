@@ -1,8 +1,8 @@
 * {
-    color: black;
-    font-size: 16px;
+    color: white;
     box-sizing: border-box;
 }
+
 
 #web-site-wrapper {
     display: flex;
@@ -25,6 +25,7 @@ html, body {
 #header-bottom {
     display: flex;
 }
+
 #header-form {
     display: flex;
     flex-direction: row;
@@ -39,17 +40,15 @@ a {
     text-decoration: none;
 }
 
-#header-bottom>form>input{
+#header-bottom>form>input {
     flex: 1;
     text-align: center;
     border: 1px solid;
     height: 100%;
     line-height: 38px;
     border-collapse: collapse;
-    font-size: 22px;
+    font-size: 24px;
     background-color: red;
-
-
 }
 
 #content-wrapper {
@@ -68,12 +67,13 @@ a {
 
 #footer {
     display: flex;
+    max-height: 40px;
     background: yellow;
     height: 40px;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 56px;
     text-align: center;
 }
 
@@ -81,7 +81,6 @@ h1 {
     max-width: 100%;
     height: auto;
     width: auto;
-    align-self: center;
     margin-bottom: 40px;
 }
 
@@ -111,5 +110,61 @@ h1 {
 
 #lang-buttons {
     margin-right: 24px;
+}
 
+#aboutus-img {
+    margin: 60px 0;
+}
+
+#map {
+    width: 300px;
+    /* height: 300px; */
+    max-width: 100%;
+    height: 50vh;
+    /* width: 50vh; */
+    align-self: center;
+    margin-top: -40px;
+    margin-bottom: 40px;
+}
+
+.gallery-img {
+    border-radius: 100px;
+    height: 200px;
+    width: 200px;
+}
+
+#gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: initial;
+    justify-content: space-evenly;
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+}
+
+#gallery-title {
+    background-image: url('img/gallery_title_bg.png');
+    font-family: 'Caveat', cursive;
+    margin-bottom: 30vh;
+
+}
+
+.ymaps-2-1-75-map, .ymaps-2-1-75-i-ua_js_yes, .ymaps-2-1-75-map-bg, .ymaps-2-1-75-islets_map-lang-ru {
+    border-radius: 20px;
+}
+
+.ymaps-2-1-75-inner-panes {
+    border-radius: 20px;
+    border: 1px solid #00ADFF;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 20px;
 }
