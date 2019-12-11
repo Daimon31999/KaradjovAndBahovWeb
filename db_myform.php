@@ -31,7 +31,7 @@ if (isset($_POST['register'])) {
         if ($mysqli->query($query)) {
             echo '<div class="link"><a href="template.php"><p>Поздравляю вы успешно заполнили анкету!!! <br />Нажмите, чтобы перейти на главную страницу</p></a></div>';
         } else {
-            echo '<div class="link"><a href="templates.php"><p>Упс что-то пошло не так ;(</p></a></div>';
+            echo '<div class="link"><a href="template.php"><p>Упс что-то пошло не так ;(</p></a></div>';
         }
     }
 }
