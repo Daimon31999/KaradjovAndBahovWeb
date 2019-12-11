@@ -29,9 +29,9 @@ if (isset($_POST['register'])) {
             "'" . implode("|", $_POST['hobby']) . "'";
         $query = "INSERT INTO `users_info`(`name`, `surname`, `sex`, `family`, `date_of_birth`, `address`, `city`, `email`, `phone`, `hobby`) VALUES($values);  ";
         if ($mysqli->query($query)) {
-            echo '<div class="link"><a href="index.php"><p>Поздравляю вы успешно заполнили анкету!!! <br />Нажмите, чтобы перейти на главную страницу</p></a></div>';
+            echo '<div class="link"><a href="template.php"><p>Поздравляю вы успешно заполнили анкету!!! <br />Нажмите, чтобы перейти на главную страницу</p></a></div>';
         } else {
-            echo '<div class="link"><a href="index.php"><p>Упс что-то пошло не так ;(</p></a></div>';
+            echo '<div class="link"><a href="templates.php"><p>Упс что-то пошло не так ;(</p></a></div>';
         }
     }
 }
