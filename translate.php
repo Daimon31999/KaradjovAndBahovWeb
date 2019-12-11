@@ -18,7 +18,15 @@ class GoogleTranslate
     {
         // Request translation
         $response = self::requestTranslation($source, $target, $text);
-
+        if(!$response){
+            setcookie('translation', 'false');
+            $_COOKIE['translation'] = 'false';
+            return $text;
+        }
+        else {
+            setcookie('translation', 'true');
+            $_COOKIE['translation'] = 'true';
+        }
         // Clean translation
         $translation = self::getSentencesFromJSON($response);
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Анкета</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        
+    </header>
+
+    <form action="db_myform.php" method="POST" id="myform">
+        <h1>Расскажите о себе</h1>
+        <label for="name">Имя</label>
+        <input type="text" id="name" name="name" required placeholder="Вася">
+        <label for="surname">Фамилия</label>
+        <input type="text" id="surname" name="surname" required placeholder="Пупкин">
+        <label for="sex">Пол</label>
+        <span>М &nbsp;</span><input type="radio" id="sex" name="sex" value="male" required> <span>Ж</span> <input
+            type="radio" id="sex" name="sex" value="female" required>
+        <label for="family">Семейное положение</label>
+        <select id="family" name="family" size="1" required>
+            <option disabled>Выберите свое семейное положение</option>
+            <option value="Замужем (женат)">Замужем (женат)</option>
+            <option value="Не замужем (холост)" selected>Не замужем (холост)</option>
+            <option value="Разведен(а)">Разведен(а)</option>
+        </select>
+        <label id="date_of_birth">Дата рождения:</label>
+        <input id="date_of_birth" type="date" name="date_of_birth" min="1900-01-01" max="2018-01-01" required>
+        <label for="address">Адрес</label>
+        <textarea name="address" id="address" cols="30" rows="5" required
+            placeholder="Улица, номер дома, квартира"></textarea>
+        <label for="city">Город</label>
+        <input type="text" id="city" name="city" required placeholder="New York">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="vaseapupkin@mail.ru">
+        <label for="phone">Телефон</label>
+        <input type="text" name="phone" id="phone" placeholder="069699699">
+        <label for="hobby">Hobby</label>
+        <select multiple name="hobby[]" id="hobby" size="6">
+            <option disabled>Выберите свои любимые занятия</option>
+            <option value="Спорт">Спорт</option>
+            <option value="Музыка">Музыка</option>
+            <option value="Лепка">Лепка</option>
+            <option value="Танцы">Танцы</option>
+            <option value="Рисование">Рисование</option>
+            <option value="Книги">Книги</option>
+        </select>
+
+        <div class="buttons">
+            <input type="submit" name="register" value="Зарегистрироваться" id="submit">
+            <input type="reset" value="Сброс" id="reset">
+        </div>
+    </form>
+
+    <style>
+        * {
+            color: black;
+        }
+
+        header {
+            text-align: center;
+            font-size: 30px;
+            margin: 26px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            font-size: 36px;
+            margin-left: 10px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #myform {
+            display: block;
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+            width: 50%;
+            margin: 0 auto;
+            border: 1px solid transparent;
+            font-size: 40px;
+            background-color: #00adff78;
+            border-radius: 20px;
+        }
+
+        input:not(#reset):not(#submit):not(#print),
+        textarea,
+        select {
+            margin-left: 10px;
+            font-size: 30px;
+        }
+
+        .buttons {
+            margin: 20px 0 0 0px;
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        span {
+            font-size: 30px;
+            margin-left: 10px;
+        }
+
+        input {
+            height: 40px;
+        }
+
+        ::placeholder,
+        option,
+        input[type=submit],
+        input[type=reset] {
+            font-size: 30px;
+        }
+
+        input[type=submit],
+        input[type=reset] {
+            background-color: #1000ff7d;
+            color: black;
+        }
+
+        #sex {
+            width: 25px;
+            height: 25px;
+        }
+
+        h1 {
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+        }
+
+        #submit {
+            border: none;
+            margin-top: 66px;
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+
+        #reset {
+            border: none;
+            border-radius: 20px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .page-header {
+            margin-top: 0;
+        }
+    </style>
+</body>
+
+</html>

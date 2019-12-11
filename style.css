@@ -3,7 +3,6 @@
     box-sizing: border-box;
 }
 
-
 #web-site-wrapper {
     display: flex;
     min-height: 100vh;
@@ -15,6 +14,7 @@
     flex: 1;
     flex-direction: column;
     /* height: 100%; */
+    background-color: #E4E7ED;
 }
 
 html, body {
@@ -38,6 +38,7 @@ html, body {
 
 a {
     text-decoration: none;
+    color: #e4e7ed;
 }
 
 #header-bottom>form>input {
@@ -48,13 +49,14 @@ a {
     line-height: 38px;
     border-collapse: collapse;
     font-size: 24px;
-    background-color: red;
+    background-color: #009999;
 }
 
 #content-wrapper {
     display: flex;
     justify-content: center;
-    background-color: green;
+    /* background-color: #E4E7ED; */
+    margin-bottom: 100px;
     flex: 1;
 }
 
@@ -68,8 +70,12 @@ a {
 #footer {
     display: flex;
     max-height: 40px;
-    background: yellow;
+    background: #009999;
     height: 40px;
+    align-items: center;
+    align-content: space-between;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 h1 {
@@ -98,18 +104,6 @@ h1 {
     border: 0;
     height: 23px;
     width: 44px;
-}
-
-#footer {
-    display: flex;
-    align-items: center;
-    align-content: space-between;
-    flex-grow: 1;
-    justify-content: flex-end;
-}
-
-#lang-buttons {
-    margin-right: 24px;
 }
 
 #aboutus-img {
@@ -152,19 +146,258 @@ h1 {
     background-image: url('img/gallery_title_bg.png');
     font-family: 'Caveat', cursive;
     margin-bottom: 30vh;
-
+    background-repeat: round;
+    color: white;
 }
 
 .ymaps-2-1-75-map, .ymaps-2-1-75-i-ua_js_yes, .ymaps-2-1-75-map-bg, .ymaps-2-1-75-islets_map-lang-ru {
-    border-radius: 20px;
+    /* border-radius: 20px; */
 }
 
 .ymaps-2-1-75-inner-panes {
-    border-radius: 20px;
-    border: 1px solid #00ADFF;
+    /* border-radius: 20px; */
+    /* border: 1px solid #00ADFF; */
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 p {
+    font-size: 20px;
+}
+
+p, h1 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p, span, h1 {
+    color: black;
+}
+
+#news-img {
+    align-self: center;
+}
+
+/* #footer * {
+    margin: 0 24px;
+} */
+
+#footer .footer-aboutus, #footer #language #lang-buttons {
+    margin: 0 10vh;
+}
+
+#logo {
+    height: 40px;
+}
+
+@media (max-width: 800px) {
+    h1 {
+        font-size: 24px;
+    }
+    p, #myform label {
+        font-size: 14px !important;
+    }
+    .footer-aboutus {
+        font-size: 14px !important;
+    }
+    #header-bottom>form>input {
+        font-size: 14px;
+    }
+    #footer {
+        height: 40vh;
+        max-height: fit-content;
+    }
+    #shedule {
+        font-size: 14px;
+    }
+    #ru {
+        /* margin: 5px 0; */
+        margin-top: 10px;
+        margin: 5px 0;
+        margin-bottom: 5px;
+        height: 23px;
+        width: 39px;
+    }
+    #en {
+        margin-bottom: 5px;
+
+        height: 23px;
+        width: 39px;
+    }
+    #myform input, select {
+        height: 20px;
+        font-size: 8px !important;
+    }
+    #sex {
+        width: auto !important;
+    }
+    input::placeholder, select option, #myform span {
+        font-size: 8px !important;
+        transform: translate3d(0, -4px, 0);
+    }
+    #myform textarea::placeholder {
+        font-size: 8px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    h1 {
+        font-size: 14px;
+    }
+    p, #myform label {
+        font-size: 8px !important;
+    }
+    .footer-aboutus {
+        font-size: 8px !important;
+    }
+    #header-bottom>form>input {
+        font-size: 8px;
+    }
+    #footer {
+        height: 40vh;
+        max-height: fit-content;
+    }
+    #shedule {
+        font-size: 8px;
+    }
+    #ru {
+        /* margin-top: 10px; */
+        /* margin: 5px 0; */
+        /* margin-bottom: 5px; */
+        height: 10px;
+        width: 19px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #en {
+        /* margin-bottom: 5px; */
+        height: 10px;
+        width: 19px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    #footer .footer-aboutus, #footer #language #lang-buttons {
+        margin: 0 10vh;
+    }
+    .gallery-img {
+        border-radius: 50px;
+        height: 100px;
+        width: 100px;
+    }
+    .image-wrapper {
+        font-size: 14px;
+    }
+    /* #myform input, select {
+        height: 20px;
+        font-size: 8px !important;
+    }
+
+    #sex {
+        width: auto !important;
+    }
+
+
+    input::placeholder, select option, #myform span {
+        font-size: 8px !important;
+        transform:translate3d(0,-4px,0);
+    }
+
+    #myform textarea::placeholder {
+        font-size: 8px !important  ;
+    } */
+}
+
+#myform label {
+    display: block;
+    font-weight: bold;
+    font-size: 36px;
+    margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+#myform {
+    display: block;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid transparent;
+    font-size: 40px;
+    /* background-color: #00adff78; */
+    background-color: #009999;
+    border-radius: 20px;
+    margin-top: 40px;
+}
+
+#myform * {
+    color: black;
+    /* font-size: 10px;     */
+}
+
+#myform *:not(#reset):not(#submit):not(#sex):not(h1) {
+    width: 70%;
+}
+
+#name, #surname, #sex, #family, #date_of_birth, #city, #email, #phone, #hobby, #address {
+    margin-left: 10px !important;
+    font-size: 30px;
+}
+
+.buttons {
+    margin: 20px 0 0 0px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+}
+
+#myform span {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+input {
+    height: 35px;
+}
+
+::placeholder, option, #submit, #reset {
+    font-size: 30px;
+}
+
+#submit, #reset {
+    background-color: #1000ff7d;
+    color: black;
+}
+
+#sex {
+    width: 25px;
+    height: 25px;
+}
+
+#myform>h1 {
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+#submit {
+    border: none;
+    margin-top: 66px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+}
+
+#reset {
+    border: none;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.page-header {
+    margin-top: 0;
+}
+
+.footer-aboutus{
     font-size: 20px;
 }
