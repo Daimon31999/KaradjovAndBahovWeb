@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 11 2019 г., 16:48
+-- Время создания: Дек 11 2019 г., 16:59
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.1.32
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- База данных: `miximix`
 --
+CREATE DATABASE IF NOT EXISTS `miximix` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `miximix`;
 
 -- --------------------------------------------------------
 
@@ -70,9 +72,9 @@ CREATE TABLE `users_info` (
 -- Дамп данных таблицы `users_info`
 --
 
--- INSERT INTO `users_info` (`id`, `name`, `surname`, `sex`, `family`, `date_of_birth`, `address`, `city`, `email`, `phone`, `hobby`) VALUES
--- (4, 'Дима', 'Хинев', 'male', 'Замужем (женат)', '1999-11-11', 'яафывафв', 'Кишинев', 'dimahinev31999@gmail.com', '068007942', 'Музыка|Лепка|Танцы'),
--- (5, 'Дима', 'Хинев', 'male', 'Замужем (женат)', '1999-11-11', 'яафывафв', 'Кишинев', 'dimahinev31999@gmail.com', '068007942', 'Музыка|Лепка|Танцы');
+INSERT INTO `users_info` (`id`, `name`, `surname`, `sex`, `family`, `date_of_birth`, `address`, `city`, `email`, `phone`, `hobby`) VALUES
+(4, 'Дима', 'Хинев', 'male', 'Замужем (женат)', '1999-11-11', 'яафывафв', 'Кишинев', 'dimahinev31999@gmail.com', '068007942', 'Музыка|Лепка|Танцы'),
+(5, 'Дима', 'Хинев', 'male', 'Замужем (женат)', '1999-11-11', 'яафывафв', 'Кишинев', 'dimahinev31999@gmail.com', '068007942', 'Музыка|Лепка|Танцы');
 
 --
 -- Индексы сохранённых таблиц
@@ -99,6 +101,11 @@ ALTER TABLE `users_info`
 --
 ALTER TABLE `users_info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- База данных: `users`
+--
+CREATE DATABASE IF NOT EXISTS `users` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `users`;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
